@@ -1,0 +1,9 @@
+@use '@/assets/scss/reset';
+@use '@/assets/scss/colors';
+
+html {
+  background-color: colors.$color-beige;
+  font-family: 'American Typewriter', 'Courier New', monospace;
+  letter-spacing: .06em;
+  color: 	colors.$color-black;
+}
