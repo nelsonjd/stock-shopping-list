@@ -1,23 +1,33 @@
 <template>
   <div>
-    <Header :currentPath="getCurrentPath()" />
+    <Header :routeName="this.$route.name" />
     <div>
-      <input type="text" />
+      <input v-model="ticker" type="text" />
     </div>
-    <button type="submit">Save</button>
+    <button @click="onClick">Search</button>
   </div>
 </template>
 
 <script>
+import { tickerStore } from '@/models/tickerStore';
 export default {
   name: "ShopPage",
   methods: {
-    getCurrentPath() {
-      return this.$router.currentRoute.path;
-    },
+    onClick() {
+      tickerStore.setTickerAction(this.ticker);
+      this.$router.push('/cards/new')
+    }
   },
+  data() {
+    return {
+      ticker: ""
+    };
+  }
 };
 </script>
 
 <style scoped>
+button {
+  margin-top: 2em;
+}
 </style>

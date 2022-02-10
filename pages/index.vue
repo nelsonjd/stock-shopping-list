@@ -1,6 +1,6 @@
 <template>
 <div class="app">
-  <Header :currentPath="getCurrentPath()"/>
+  <Header :routeName="this.$route.name"/>
 </div>
 </template>
 
@@ -8,9 +8,6 @@
 export default {
   name: 'IndexPage',
   methods: {
-    getCurrentPath() {
-      return this.$router.currentRoute.path;
-    }
   }
 }
 </script>

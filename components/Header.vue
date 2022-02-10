@@ -2,21 +2,24 @@
   <header class="header">
     <h1 class="header-item">Stock Shopping List</h1>
     <NuxtLink v-if="shopLinkVisible" to="/shop" class="header-item">Shop</NuxtLink>
-    <NuxtLink v-else to="/" class="header-item">List</NuxtLink>
+    <NuxtLink v-if="listLinkVisible" to="/" class="header-item">List</NuxtLink>
   </header>
 </template>
 
 <script>
 export default {
   props: {
-    currentPath: {
+    routeName: {
       type: String,
       required: true
     }
   },
   computed: {
     shopLinkVisible() {
-      return this.currentPath !== "/shop"
+      return this.routeName !== 'shop';
+    },
+    listLinkVisible() {
+      return this.routeName !== 'index';
     }
   }
 }
